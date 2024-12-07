@@ -4,7 +4,7 @@ from utils import read_input, solve_part
 def solve(res, vars, curr):
     if curr == res and not vars:
         return True
-    if not vars:
+    if curr > res or not vars:
         return False
     return solve(res, vars[1:], curr + vars[0]) or solve(res, vars[1:], curr * vars[0])
 
@@ -12,7 +12,7 @@ def solve(res, vars, curr):
 def solve2(res, vars, curr):
     if curr == res and not vars:
         return True
-    if not vars:
+    if curr > res or not vars:
         return False
     return (
         solve2(res, vars[1:], curr + vars[0])
